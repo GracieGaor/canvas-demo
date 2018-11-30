@@ -1,5 +1,6 @@
 var yyy = document.getElementById('xxx')
 var context = yyy.getContext('2d')
+var lineWidth = 5
 
 autosetCanvasSize(yyy)
 
@@ -15,6 +16,24 @@ eraser.onclick = function(){
     eraserEnabled = true
     eraser.classList.add('active')
     pen.classList.remove('active')
+}
+clear.onclick = function(){
+    context.clearRect(0,0,yyy.width,yyy.height);
+}
+thin.onclick = function(){
+    lineWidth = 5
+}
+thick.onclick = function(){
+    lineWidth = 9
+}
+save.onclick = function(){
+    var url = yyy.toDataURL("image/png")
+    var a = document.createElement('a')
+    document.body.appendChild(a)
+    a.href = url
+    a.download = "我的画儿"
+    a.target = "_blank"
+    a.click()
 }
 black.onclick = function(){
     context.strokeStyle = "black";
@@ -120,7 +139,7 @@ function listenToUser(canvas) {
 function drawLine(x1, y1, x2, y2) {
     context.beginPath();
     context.moveTo(x1, y1) // 起点
-    context.lineWidth = 4
+    context.lineWidth = lineWidth
     context.lineTo(x2, y2) // 终点
     context.stroke()
     context.closePath()
