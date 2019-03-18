@@ -57,21 +57,3 @@ ol,li{list-style: none;}
   transform: scale(1.2);
   box-shadow: 0,0,3px,rgb(0,0,0,0.95);
  }
- .sizes{
-   position: fixed;
-   top: 10px;
-   left: 250px;
- }
- .sizes >li{
-   margin: 20px 0;
- }
- .sizes > .thin{
-   height: 0;
-   width: 20px;
-   border-top: 3px solid black;
- }
- .sizes > .thick{
-  height: 0;
-  width: 20px;
-  border-top: 5px solid black;
-}

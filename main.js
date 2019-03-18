@@ -1,6 +1,6 @@
 var yyy = document.getElementById('xxx')
 var context = yyy.getContext('2d')
-var lineWidth = 5
+var lineWidth = 3
 
 autosetCanvasSize(yyy)
 
@@ -9,23 +9,28 @@ listenToUser(yyy)
 var eraserEnabled = false
 pen.onclick = function(){
     eraserEnabled = false
+    lineWidth = 3
     pen.classList.add('active')
+    pen2.classList.remove('active')
+    eraser.classList.remove('active')
+}
+pen2.onclick = function(){
+    eraserEnabled = false
+    lineWidth = 6
+    pen2.classList.add('active')
+    pen.classList.remove('active')
     eraser.classList.remove('active')
 }
 eraser.onclick = function(){
     eraserEnabled = true
     eraser.classList.add('active')
     pen.classList.remove('active')
+    pen2.classList.remove('active')
 }
 clear.onclick = function(){
     context.clearRect(0,0,yyy.width,yyy.height);
 }
-thin.onclick = function(){
-    lineWidth = 5
-}
-thick.onclick = function(){
-    lineWidth = 9
-}
+
 save.onclick = function(){
     var url = yyy.toDataURL("image/png")
     var a = document.createElement('a')
