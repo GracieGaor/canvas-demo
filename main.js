@@ -36,7 +36,7 @@ save.onclick = function(){
     var a = document.createElement('a')
     document.body.appendChild(a)
     a.href = url
-    a.download = "我的画儿"
+    a.download = "picture"
     a.target = "_blank"
     a.click()
 }
